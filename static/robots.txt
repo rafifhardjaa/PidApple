@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pidapple.vercel.app/sitemap.xml
