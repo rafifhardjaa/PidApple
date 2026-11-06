@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+.svelte-kit/
+build/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Screenshots & design artifacts (root)
+*.png
+REDONE
+redesign-summary.md
+redesign-complete.json
+
+# Tooling caches
+.playwright-mcp/
+.vite/
