@@ -23,3 +23,7 @@ redesign-complete.json
 # Tooling caches
 .playwright-mcp/
 .vite/
+
+# Local-only docs and tool state
+pidapple_blueprint_v2/
+.hallmark/

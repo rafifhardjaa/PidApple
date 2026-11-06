@@ -2,10 +2,7 @@
 
 # PidApple
 
-**Personal device concierge untuk iPhone eks-inter pilihan.**
-
-Cari HP impianmu, biarkan kami yang pusing. Sebutkan seri dan budget, kami carikan unitnya, cek 3uTools sampai All Green, dan kirim laporan foto sebelum kamu bayar.
-
+![Apple](https://img.shields.io/badge/Built_for-iPhone-black?style=for-the-badge&logo=apple&logoColor=white)
 ![SvelteKit](https://img.shields.io/badge/SvelteKit-FF3E00?style=for-the-badge&logo=sveltekit&logoColor=white)
 ![Svelte](https://img.shields.io/badge/Svelte-FF3E00?style=for-the-badge&logo=svelte&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)
@@ -13,21 +10,11 @@ Cari HP impianmu, biarkan kami yang pusing. Sebutkan seri dan budget, kami carik
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
+Landing page satu halaman untuk layanan iPhone eks-inter pilihan. Calon pembeli menyebut seri dan budget lewat WhatsApp, lalu kami carikan unitnya, cek 3uTools sampai All Green, dan kirim laporan foto sebelum transaksi.
+
 </div>
 
-## ✨ Fitur
-
-- **Hero split ala Apple** — headline raksasa + foto produk, tanpa lompatan layout
-- **CardStack interaktif** — 3 kartu foto bertumpuk yang melebar seperti kipas saat di-hover (desktop) dan bisa diklik untuk mengganti foto depan
-- **WordSwap** — frasa headline berganti dengan fade halus, slot tinggi terkunci (tanpa CLS)
-- **Navbar ala Apple** — blur & saturasi meningkat saat scroll
-- **WhatsApp CTA** — semua tombol membuka `wa.me` dengan pesan request terisi otomatis, termasuk FAB melayang di mobile
-- **Workflow 4 langkah** dalam grid bento, section trust, dan estimator harga 3 model
-- **Foto lokal WebP** — 6 foto produk lokal (`src/lib/assets/`), ±260 KB total, tanpa hotlink eksternal
-- **SEO & OG** — canonical, Open Graph, Twitter card, JSON-LD, `sitemap.xml`, `robots.txt`
-- **Aksesibel** — `:focus-visible` di semua elemen interaktif, `prefers-reduced-motion` dihormati, skip link
-
-## 🚀 Menjalankan
+## Menjalankan di lokal
 
 ```bash
 npm install
@@ -37,47 +24,50 @@ npm run dev
 
 Buka `http://localhost:5173`.
 
-## ⚙️ Environment
-
-| Variable           | Keterangan                                             |
-| ------------------ | ------------------------------------------------------ |
-| `PUBLIC_WA_NUMBER` | Nomor WhatsApp tujuan, format internasional tanpa `+`. |
-
-Nomor ini aman untuk publik karena dipakai langsung di tautan `wa.me`. Didefinisikan di `src/env.ts` dan dibaca lewat `$app/env/public`.
-
-## 🛠️ Perintah
+## Perintah yang tersedia
 
 ```bash
-npm run check    # svelte-check
+npm run check    # cek tipe dengan svelte-check
 npm run build    # build statis ke folder build/
-npm run preview  # pratinjau hasil build
+npm run preview  # lihat hasil build
 ```
 
-## 📁 Struktur
+## Konfigurasi
+
+| Variabel | Keterangan |
+| --- | --- |
+| `PUBLIC_WA_NUMBER` | Nomor WhatsApp tujuan, format internasional tanpa `+` (mis. `62812...`). Dipakai langsung di tautan `wa.me`, jadi aman dipublikasikan. |
+
+Deklarasinya ada di `src/env.ts`.
+
+## Struktur folder
 
 ```
 src/
-├── app.html                  # shell HTML + Google Fonts (General Sans)
-├── app.css                   # token, base styles, reveal
-├── tokens.css                # token tema (OKLCH, tipe, spacing)
-├── base.css                  # aturan dasar + treatment foto
-├── env.ts                    # deklarasi env publik
-├── lib/
-│   ├── actions/reveal.ts     # scroll reveal (IntersectionObserver)
-│   ├── assets/               # foto produk WebP lokal
-│   ├── components/           # Navbar, Button, BentoCard, CardStack, WordSwap, WhatsappFab
-│   ├── config/whatsapp.ts    # builder tautan wa.me
-│   └── data/content.ts       # data terpusat: foto, device, nav, SITE
-└── routes/
-    ├── +layout.svelte        # skip link
-    ├── +layout.ts            # prerender
-    └── +page.svelte          # hero, cara kerja, trust, koleksi, footer
+  app.html            shell HTML + font General Sans
+  app.css             style Tailwind + token lokal
+  tokens.css          token tema: warna OKLCH, skala tipe, spacing
+  base.css            aturan dasar dan treatment foto
+  env.ts              deklarasi variabel environment publik
+  lib/
+    actions/          reveal saat scroll
+    assets/           foto produk WebP lokal
+    components/       Navbar, Button, BentoCard, CardStack, WordSwap, WhatsappFab
+    config/           pembuat tautan WhatsApp
+    data/             data terpusat: foto, daftar device, link nav, domain situs
+  routes/
+    +layout.svelte    skip link aksesibilitas
+    +layout.ts        prerender statis
+    +page.svelte      hero, cara kerja, trust, koleksi, footer
+static/
+  robots.txt          aturan crawling
+  sitemap.xml         daftar URL untuk search engine
 ```
 
-## 🎨 Desain
+## Catatan desain
 
-Tema **Coral** (Hallmark) yang disetel ulang ke netral ala Apple: kertas putih sejuk, tinta netral, aksen biru tunggal, tipografi General Sans dengan tracking rapat. Detail aturan ada di `pidapple_blueprint_v2/rules.md`.
+Tema Coral (Hallmark) yang disetel ke netral ala Apple: kertas putih sejuk, tinta gelap netral, satu aksen biru, tipografi General Sans rapat. Foto produk disimpan lokal sebagai WebP di `src/lib/assets/` dan diimpor lewat `src/lib/data/content.ts`, jadi mengganti foto cukup mengedit satu file itu.
 
-## 📄 Lisensi
+## Lisensi
 
 Lihat berkas `LICENSE`.
