@@ -11,7 +11,7 @@
 		children
 	}: {
 		href?: string;
-		variant?: 'primary' | 'secondary' | 'inverse';
+		variant?: 'primary' | 'secondary' | 'light';
 		size?: 'sm' | 'md';
 		target?: string;
 		rel?: string;
@@ -19,21 +19,7 @@
 		children: Snippet;
 	} = $props();
 
-	const base =
-		'inline-flex items-center justify-center gap-2 rounded-full font-medium transition duration-300 ease-[var(--ease-out)] hover:-translate-y-[1px] hover:brightness-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)] focus-visible:outline-offset-3 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50';
-
-	const variants = {
-		primary: 'bg-[var(--color-ink)] text-[var(--color-paper)] hover:bg-[var(--color-ink-2)]',
-		secondary: 'bg-[var(--color-paper-2)] text-[var(--color-ink)] hover:bg-[var(--color-paper-3)]',
-		inverse: 'bg-[var(--color-accent)] text-[var(--color-accent-ink)] hover:bg-[var(--color-accent-2)]'
-	};
-
-	const sizes = {
-		sm: 'px-4 py-2 text-[13px]',
-		md: 'px-7 py-3.5 text-[15px]'
-	};
-
-	const classes = $derived(`${base} ${variants[variant]} ${sizes[size]} ${className}`);
+	const classes = $derived(`btn btn--${variant} btn--${size} ${className}`);
 </script>
 
 {#if href}
@@ -41,7 +27,74 @@
 		{@render children()}
 	</a>
 {:else}
-	<button type="button" class={classes} aria-disabled="false">
+	<button type="button" class={classes}>
 		{@render children()}
 	</button>
 {/if}
+
+<style>
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-xs);
+		border: 1px solid transparent;
+		border-radius: var(--radius-pill);
+		font-weight: 500;
+		letter-spacing: -0.01em;
+		text-align: center;
+		text-decoration: none;
+		transition:
+			background-color var(--dur-short) var(--ease-out),
+			color var(--dur-short) var(--ease-out),
+			border-color var(--dur-short) var(--ease-out);
+	}
+
+	.btn--md {
+		min-height: 48px;
+		padding-inline: 28px;
+		font-size: var(--text-md);
+	}
+
+	.btn--sm {
+		min-height: 44px;
+		padding-inline: 18px;
+		font-size: var(--text-sm);
+	}
+
+	.btn--primary {
+		background: var(--color-ink);
+		color: var(--color-paper);
+	}
+
+	.btn--primary:hover {
+		background: var(--color-ink-2);
+	}
+
+	.btn--secondary {
+		background: var(--color-paper-2);
+		color: var(--color-ink);
+	}
+
+	.btn--secondary:hover {
+		background: var(--color-paper-3);
+	}
+
+	.btn--light {
+		background: var(--color-paper);
+		color: var(--color-ink);
+	}
+
+	.btn--light:hover {
+		background: var(--color-paper-2);
+	}
+
+	.btn:active {
+		transform: scale(0.985);
+	}
+
+	.btn:focus-visible {
+		outline: 2px solid var(--color-focus);
+		outline-offset: 3px;
+	}
+</style>

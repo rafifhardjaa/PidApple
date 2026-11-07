@@ -1,32 +1,59 @@
-/* Hallmark · shape: desk · genre: modern-minimal · theme: Coral (deal 1/3, retuned apple-neutral) · redesign: full
- * hero: stage · nav: edge-aligned · footer: minimal · imagery: real, the product · signature: the curated unit
- * axes: light/grotesk-sans/cool · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P_ H_ E_ S_ R_ V_ · weakest: _, hero copy trimmed to seven words */
+/* Hallmark · shape: Narrative Workflow · genre: modern-minimal · theme: brand · redesign: full
+ * paper: oklch(100% 0 0) · accent: oklch(52% 0.19 254) · display: General Sans · body: General Sans · hero: Ledge · nav: floating pill · footer: mast · signature: the unit report
+ * axes: light/grotesk-sans/cool · posture: restrained · contrast: pass · fold: pass · v2.0.0
+ * hero-review: none · gap: no hero-stage review ran before the sections arrived
+ * finish-review: subagent · 6 findings · 6 resolved · gap: hero review not run */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S, a resale page could be any resale page; the report sheet is built from this page's own unit facts and named as the signature */
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/general-sans-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/general-sans-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/general-sans-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/general-sans-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light;
   --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
   --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
-  --text-display-s: clamp(2.5rem, 4.5vw + 0.5rem, 4.25rem); --text-display: clamp(3.25rem, 5.5vw + 1rem, 6rem);
-  --text-section: clamp(2.25rem, 3vw + 1rem, 3.75rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --text-display-s: clamp(2.5rem, 4vw + 0.5rem, 4.25rem); --text-display: clamp(2.75rem, 4.4vw + 1rem, 5rem);
+  --text-section: clamp(2rem, 2.6vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
   --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
   --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
   --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
-  --color-paper: oklch(98.5% 0.002 240); --color-paper-2: oklch(95.5% 0.004 240); --color-paper-3: oklch(92% 0.005 240);
-  --color-ink: oklch(20% 0.006 240); --color-ink-2: oklch(28% 0.007 240); --color-muted: oklch(55% 0.01 240);
-  --color-rule: oklch(88% 0.004 240); --color-rule-2: oklch(82% 0.005 240);
-  --color-accent: oklch(60% 0.18 255); --color-accent-ink: oklch(98% 0.002 240); --color-accent-2: oklch(52% 0.19 255); --color-focus: oklch(52% 0.19 255);
-  --color-cotton: oklch(99% 0.002 240); --color-desk: oklch(95% 0.004 240); --color-print: oklch(20% 0.006 240);
-  --color-board: oklch(18% 0.007 240); --color-board-type: oklch(96% 0.003 240); --color-paid: oklch(60% 0.18 255);
-  --tex-cotton: url("cotton.svg"); --tex-desk: url("felt.svg");
-  --shade: 32% 0.03 50; --lit: 100% 0.005 80; --deep: 7% 0.01 40;
-  --font-display: "General Sans", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display);
-  --font-outlier: "Geist Mono", ui-monospace, monospace;
-  --radius-card: 8px; --radius-input: 6px; --radius-pill: 999px; --radius-stock: 8px; --rule-hair: 1px;
-  --shadow-card: 0 1px 2px oklch(20% 0.01 35 / 0.05);
-  --edge-stock: inset 0 1px 0 oklch(var(--lit) / 0.9), inset 0 -1px 0 oklch(var(--shade) / 0.07), 0 0 0 0.5px oklch(var(--shade) / 0.22), 0 1px 0 oklch(var(--shade) / 0.12);
-  --cast-stock: 6px 5px 10px -6px oklch(var(--shade) / 0.3); --cast-stock-lift: 12px 10px 18px -8px oklch(var(--shade) / 0.3);
-  --press-groove: inset 1px 1.5px 2px oklch(var(--shade) / 0.16), inset -1px -1px 0 oklch(var(--lit) / 0.9), 0 0 0 0.5px oklch(var(--shade) / 0.2);
-  --tracking-display: -0.04em; --display-weight: 700;
+  --color-paper: #FFFFFF; --color-paper-2: #F5F5F7; --color-paper-3: #ECECF0;
+  --color-ink: #1D1D1F; --color-ink-2: #333336; --color-muted: #6E6E73;
+  --color-muted-on-ink: #A1A1A6;
+  --color-rule: #D2D2D7; --color-rule-on-ink: #3A3A3C;
+  --color-accent: #0066CC; --color-accent-ink: #FFFFFF; --color-focus: #007AFF;
+  --font-display: "General Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "General Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-outlier: var(--font-body);
+  --display-weight: 600;
+  --radius-card: 32px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
+  --shadow-pop: 0 16px 40px oklch(0% 0 0 / 0.14);
+  --tracking-display: -0.03em;
 }

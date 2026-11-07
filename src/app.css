@@ -1,3 +1,6 @@
+/* Hallmark · shape: Narrative Workflow · genre: modern-minimal · theme: brand · redesign: full
+ * paper: oklch(100% 0 0) · accent: oklch(52% 0.19 254) · display: General Sans · body: General Sans · hero: Ledge · nav: floating pill · footer: mast · signature: the unit report
+ * axes: light/grotesk-sans/cool · posture: restrained · contrast: pass · fold: pass · v2.0.0 */
 @import './tokens.css';
 @import './base.css' layer(base);
 
@@ -5,100 +8,36 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-	--color-bg: #ffffff;
-	--color-surface: #f5f5f7;
-	--color-ink: #1d1d1f;
-	--color-muted: #86868b;
-	--color-accent: #007aff;
-	--color-whatsapp: #25d366;
-	--font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-	--ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 @layer base {
 	html {
 		scroll-behavior: smooth;
-		scroll-padding-top: 88px;
-		overflow-x: clip;
-	}
-
-	body {
-		@apply bg-white font-sans text-ink antialiased;
-		overflow-x: clip;
 	}
 
 	::selection {
 		background: var(--color-ink);
-		color: #ffffff;
+		color: var(--color-paper);
 	}
 
-	:focus-visible {
-		outline: 2px solid var(--color-accent);
-		outline-offset: 3px;
+	/* Tailwind preflight leaves controls on the text cursor. */
+	a[href],
+	button:not(:disabled),
+	summary,
+	label[for],
+	select:not(:disabled),
+	input[type='checkbox'],
+	input[type='radio'] {
+		cursor: pointer;
+	}
+
+	button:disabled,
+	a[aria-disabled='true'],
+	[aria-disabled='true'] {
+		cursor: not-allowed;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
 		html {
 			scroll-behavior: auto;
 		}
-
-		*,
-		*::before,
-		*::after {
-			animation-duration: 0.01ms !important;
-			animation-iteration-count: 1 !important;
-			transition-duration: 0.01ms !important;
-		}
-	}
-}
-
-@layer components {
-	.shell {
-		@apply mx-auto w-full max-w-[1120px] px-6;
-	}
-}
-
-@keyframes blink {
-	0%,
-	100% {
-		opacity: 1;
-	}
-
-	50% {
-		opacity: 0;
-	}
-}
-
-@layer components {
-	.typewriter-cursor {
-		display: inline-block;
-		margin-left: 0.04em;
-		font-weight: 300;
-		color: var(--color-accent);
-		animation: blink 0.9s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-	}
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.typewriter-cursor {
-		animation: none;
-		opacity: 1;
-	}
-}
-
-@layer utilities {
-	/* Applied by the reveal action, so content stays visible without JavaScript. */
-	.reveal {
-		opacity: 0;
-		transform: translate3d(0, 24px, 0);
-		transition:
-			opacity 800ms var(--ease-apple),
-			transform 800ms var(--ease-apple);
-	}
-
-	.reveal-visible {
-		opacity: 1;
-		transform: none;
 	}
 }

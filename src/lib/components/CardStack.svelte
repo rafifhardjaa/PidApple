@@ -15,11 +15,11 @@
 		selected = index;
 	}
 
-	function onError(seed: string) {
+	function onError() {
 		return (e: Event) => {
 			const t = e.currentTarget as HTMLImageElement;
 			t.onerror = null;
-			t.src = fallback(seed);
+			t.src = fallback();
 		};
 	}
 
@@ -35,7 +35,7 @@
 		aria-label="Tampilkan {back.alt}"
 		class="{cardCls} z-10 origin-center scale-[0.92] translate-y-12 md:group-hover:rotate-[4deg] md:group-hover:translate-x-6 md:group-hover:translate-y-12"
 	>
-		<img width="900" height="1125" src={back.src} alt="" class="absolute inset-0 h-full w-full object-cover opacity-90" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror={onError('pid-stack-back')} />
+		<img width="900" height="1125" src={back.src} alt="" class="absolute inset-0 h-full w-full object-cover opacity-90" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror={onError()} />
 	</button>
 
 	<!-- Tengah -->
@@ -45,7 +45,7 @@
 		aria-label="Tampilkan {middle.alt}"
 		class="{cardCls} z-20 origin-center scale-[0.96] translate-y-6 md:group-hover:-rotate-[4deg] md:group-hover:-translate-x-6 md:group-hover:translate-y-6"
 	>
-		<img width="900" height="1125" src={middle.src} alt="" class="absolute inset-0 h-full w-full object-cover opacity-95" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror={onError('pid-stack-mid')} />
+		<img width="900" height="1125" src={middle.src} alt="" class="absolute inset-0 h-full w-full object-cover opacity-95" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror={onError()} />
 	</button>
 
 	<!-- Depan -->
@@ -55,7 +55,7 @@
 		aria-label="{front.alt}. Klik untuk foto berikutnya"
 		class="{cardCls} z-30"
 	>
-		<img width="900" height="1125" src={front.src} alt={front.alt} class="absolute inset-0 h-full w-full object-cover" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" onerror={onError('pid-stack-front')} />
+		<img width="900" height="1125" src={front.src} alt={front.alt} class="absolute inset-0 h-full w-full object-cover" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" onerror={onError()} />
 		{#if front.label}
 			<span class="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-[24px] bg-[var(--color-cotton)]/85 px-4 py-3 ring-1 ring-white/60 backdrop-blur-md">
 				<span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent)] text-[var(--color-accent-ink)]">
