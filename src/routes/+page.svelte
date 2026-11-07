@@ -275,10 +275,7 @@
 				{/each}
 				<a href={requestUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>
 			</nav>
-			<div class="footer-meta">
-				<p>© 2026 PidApple. Hak cipta dilindungi.</p>
-				<p>Foto contoh: Igor Omilaev dan Filip Baotic, via Unsplash.</p>
-			</div>
+			<p class="footer-meta">© 2026 PidApple. Hak cipta dilindungi.</p>
 		</div>
 	</div>
 </footer>
