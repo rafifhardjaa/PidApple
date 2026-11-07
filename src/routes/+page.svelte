@@ -19,52 +19,87 @@
 
 	const sample = devices[2];
 
-	const ogImage = SITE.replace(/\/$/, '') + IMG.hero;
+	const origin = SITE.replace(/\/$/, '');
+	const canonical = `${origin}/`;
+	const ogImage = `${origin}/og-default.jpg`;
+	const pageTitle = 'PidApple: iPhone Eks-Inter Dicek Sebelum Dibeli';
+	const pageDescription =
+		'Sebutkan seri dan budget. Kami carikan unit iPhone eks-inter, cek 3uTools, dan kirim laporan sebelum kamu bayar.';
+	const ogAlt = 'PidApple, iPhone eks-inter dicari dan dicek sebelum kamu bayar';
+
 	const jsonLd = {
 		'@context': 'https://schema.org',
-		'@type': 'Organization',
-		name: 'PidApple',
-		url: SITE,
-		description:
-			'Personal device concierge untuk iPhone eks-inter pilihan. Pengecekan 3uTools dan laporan sebelum bayar.',
-		contactPoint: {
-			'@type': 'ContactPoint',
-			telephone: `+${waNumber}`,
-			contactType: 'sales',
-			availableLanguage: 'id'
-		}
+		'@graph': [
+			{
+				'@type': 'Organization',
+				'@id': `${origin}/#organization`,
+				name: 'PidApple',
+				url: canonical,
+				description:
+					'Personal device concierge untuk iPhone eks-inter pilihan. Pengecekan 3uTools dan laporan sebelum bayar.',
+				contactPoint: {
+					'@type': 'ContactPoint',
+					telephone: `+${waNumber}`,
+					contactType: 'sales',
+					availableLanguage: 'id'
+				}
+			},
+			{
+				'@type': 'WebSite',
+				'@id': `${origin}/#website`,
+				url: canonical,
+				name: 'PidApple',
+				inLanguage: 'id-ID',
+				publisher: { '@id': `${origin}/#organization` }
+			},
+			{
+				'@type': 'ItemList',
+				'@id': `${origin}/#koleksi`,
+				name: 'iPhone eks-inter',
+				itemListElement: devices.map((device, index) => ({
+					'@type': 'ListItem',
+					position: index + 1,
+					item: {
+						'@type': 'Product',
+						name: device.model,
+						description: `${device.spec}. ${device.grade}.`,
+						brand: { '@type': 'Brand', name: 'Apple' },
+						itemCondition: 'https://schema.org/UsedCondition',
+						offers: {
+							'@type': 'Offer',
+							price: device.priceIdr,
+							priceCurrency: 'IDR',
+							url: `${origin}/#koleksi`
+						}
+					}
+				}))
+			}
+		]
 	};
 </script>
 
 <svelte:head>
-	<title>PidApple: iPhone Eks-Inter Dicek Sebelum Dibeli</title>
-	<meta
-		name="description"
-		content="Sebutkan seri dan budget. Kami carikan unit iPhone eks-inter, cek 3uTools, dan kirim laporan sebelum kamu bayar."
-	/>
-	<meta name="robots" content="index, follow" />
+	<title>{pageTitle}</title>
+	<meta name="description" content={pageDescription} />
+	<meta name="robots" content="index, follow, max-image-preview:large" />
 	<meta name="author" content="PidApple" />
-	<link rel="canonical" href={SITE} />
+	<link rel="canonical" href={canonical} />
 	<meta property="og:type" content="website" />
 	<meta property="og:locale" content="id_ID" />
 	<meta property="og:site_name" content="PidApple" />
-	<meta property="og:url" content={SITE} />
-	<meta property="og:title" content="PidApple: iPhone Eks-Inter Dicek Sebelum Dibeli" />
-	<meta
-		property="og:description"
-		content="Sebutkan seri dan budget, kami carikan unitnya, cek 3uTools, dan kirim laporan sebelum kamu memutuskan."
-	/>
+	<meta property="og:url" content={canonical} />
+	<meta property="og:title" content={pageTitle} />
+	<meta property="og:description" content={pageDescription} />
 	<meta property="og:image" content={ogImage} />
-	<meta property="og:image:width" content="1400" />
-	<meta property="og:image:height" content="1400" />
-	<meta property="og:image:alt" content="Dua iPhone 15 Pro Natural Titanium, foto contoh unit" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content={ogAlt} />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="PidApple: iPhone Eks-Inter Dicek Sebelum Dibeli" />
-	<meta
-		name="twitter:description"
-		content="Sebutkan seri dan budget. Kami cek 3uTools dan kirim laporan sebelum kamu bayar."
-	/>
+	<meta name="twitter:title" content={pageTitle} />
+	<meta name="twitter:description" content={pageDescription} />
 	<meta name="twitter:image" content={ogImage} />
+	<meta name="twitter:image:alt" content={ogAlt} />
 	<meta name="theme-color" content="#FFFFFF" />
 	{@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
 </svelte:head>

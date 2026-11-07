@@ -45,7 +45,7 @@ export const IMG = {
 } as const;
 
 export const devices = [
-	{ tag: 'Paling dicari', grade: 'Grade A+', model: 'iPhone 13 Pro', spec: '128GB atau 256GB, Sierra Blue', price: 'Rp 9,8 jt', img: yellowSplit },
-	{ tag: 'Favorit creator', grade: 'Grade A+', model: 'iPhone 14 Pro Max', spec: '256GB, Deep Purple', price: 'Rp 14,5 jt', img: mintStudio },
-	{ tag: 'Flagship titanium', grade: 'Grade A+', model: 'iPhone 15 Pro', spec: '128GB atau 256GB, Natural Titanium', price: 'Rp 16,9 jt', img: heroTitanium }
+	{ tag: 'Paling dicari', grade: 'Grade A+', model: 'iPhone 13 Pro', spec: '128GB atau 256GB, Sierra Blue', price: 'Rp 9,8 jt', priceIdr: 9800000, img: yellowSplit },
+	{ tag: 'Favorit creator', grade: 'Grade A+', model: 'iPhone 14 Pro Max', spec: '256GB, Deep Purple', price: 'Rp 14,5 jt', priceIdr: 14500000, img: mintStudio },
+	{ tag: 'Flagship titanium', grade: 'Grade A+', model: 'iPhone 15 Pro', spec: '128GB atau 256GB, Natural Titanium', price: 'Rp 16,9 jt', priceIdr: 16900000, img: heroTitanium }
 ];
