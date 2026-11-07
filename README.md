@@ -10,7 +10,7 @@
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
-Landing page satu halaman untuk layanan iPhone eks-inter pilihan. Calon pembeli menyebut seri dan budget lewat WhatsApp, lalu kami carikan unitnya, cek 3uTools sampai All Green, dan kirim laporan foto sebelum transaksi.
+Landing page satu halaman untuk layanan iPhone eks-inter pilihan. Calon pembeli menyebut seri dan budget lewat WhatsApp, lalu kami carikan unitnya, cek 3uTools sampai All Green, dan kirim laporan foto sebelum kamu memutuskan.
 
 </div>
 
@@ -18,7 +18,6 @@ Landing page satu halaman untuk layanan iPhone eks-inter pilihan. Calon pembeli 
 
 ```bash
 npm install
-cp .env.example .env
 npm run dev
 ```
 
@@ -50,23 +49,24 @@ src/
   base.css            aturan dasar dan treatment foto
   env.ts              deklarasi variabel environment publik
   lib/
-    actions/          reveal saat scroll
     assets/           foto produk WebP lokal
-    components/       Navbar, Button, BentoCard, CardStack, WordSwap, WhatsappFab
+    components/       Navbar, Button
     config/           pembuat tautan WhatsApp
     data/             data terpusat: foto, daftar device, link nav, domain situs
   routes/
     +layout.svelte    skip link aksesibilitas
     +layout.ts        prerender statis
-    +page.svelte      hero, cara kerja, trust, koleksi, footer
+    +page.svelte      hero, empat tahap proses, koleksi, footer
 static/
+  fonts/              General Sans, di-host secara lokal
+  og-default.jpg      gambar default untuk kartu OG
   robots.txt          aturan crawling
   sitemap.xml         daftar URL untuk search engine
 ```
 
 ## Catatan desain
 
-Tema Coral (Hallmark) yang disetel ke netral ala Apple: kertas putih sejuk, tinta gelap netral, satu aksen biru, tipografi General Sans rapat. Foto produk disimpan lokal sebagai WebP di `src/lib/assets/` dan diimpor lewat `src/lib/data/content.ts`, jadi mengganti foto cukup mengedit satu file itu.
+Tema brand (Hallmark) yang disetel ke netral ala Apple: kertas putih sejuk, tinta gelap netral, satu aksen biru, tipografi General Sans rapat. Foto produk disimpan lokal sebagai WebP di `src/lib/assets/` dan diimpor lewat `src/lib/data/content.ts`, jadi mengganti foto cukup mengedit satu file itu.
 
 ## Lisensi
 
